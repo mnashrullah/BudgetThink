@@ -9,7 +9,7 @@ import UIKit
 
 class InputDataController: UIViewController {
 
-    @IBOutlet var WhiteView: UIView!
+    @IBOutlet weak var WhiteView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         let newLayer = CAGradientLayer()
