@@ -7,8 +7,9 @@
 //
 import UIKit
 
-class InputDataController: UIViewController {
+class InputDataController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var txtDesc: UITextField!
     @IBOutlet weak var WhiteView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,8 +20,17 @@ class InputDataController: UIViewController {
         newLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
         view.layer.insertSublayer(newLayer, at: 0)
         
-       WhiteView.layer.cornerRadius = 45
+        WhiteView.layer.cornerRadius = 45
+        txtDesc.delegate = self
     }
-
+    
+    @IBAction func onCancel(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
 }

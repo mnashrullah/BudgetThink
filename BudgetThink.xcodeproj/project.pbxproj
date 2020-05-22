@@ -16,7 +16,6 @@
 		D7F08B56246924D800FA7FAF /* BudgetThink.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7F08B54246924D800FA7FAF /* BudgetThink.xcdatamodeld */; };
 		D7F08B58246924DA00FA7FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7F08B57246924DA00FA7FAF /* Assets.xcassets */; };
 		D7F08B5B246924DA00FA7FAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F08B59246924DA00FA7FAF /* LaunchScreen.storyboard */; };
-		ED294929246AA69C00719247 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED294928246AA69C00719247 /* TransactionsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +30,6 @@
 		D7F08B57246924DA00FA7FAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7F08B5A246924DA00FA7FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7F08B5C246924DA00FA7FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ED294928246AA69C00719247 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +72,6 @@
 				D7F08B59246924DA00FA7FAF /* LaunchScreen.storyboard */,
 				D7F08B5C246924DA00FA7FAF /* Info.plist */,
 				D7F08B54246924D800FA7FAF /* BudgetThink.xcdatamodeld */,
-				ED294928246AA69C00719247 /* TransactionsViewController.swift */,
 			);
 			path = BudgetThink;
 			sourceTree = "<group>";
@@ -156,7 +153,6 @@
 				23C77809247433F3000CEFD7 /* TransactionController.swift in Sources */,
 				D7F08B4C246924D800FA7FAF /* AppDelegate.swift in Sources */,
 				D7F08B4E246924D800FA7FAF /* SceneDelegate.swift in Sources */,
-				ED294929246AA69C00719247 /* TransactionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
