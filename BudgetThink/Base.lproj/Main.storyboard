@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="llv-Gf-1Ni">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="llv-Gf-1Ni">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -269,7 +269,7 @@
                                         <rect key="frame" x="24" y="32" width="366" height="49"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="3Q6-ZV-7yF" userLabel="IncomesStackView">
-                                                <rect key="frame" x="8" y="0.0" width="208" height="26"/>
+                                                <rect key="frame" x="8" y="0.0" width="202" height="26"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="Input&amp;Edit-choose1" translatesAutoresizingMaskIntoConstraints="NO" id="Hc9-xv-wBv">
                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="26"/>
@@ -277,23 +277,29 @@
                                                             <constraint firstAttribute="width" constant="24" id="W0d-oc-6Fa"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="254" verticalHuggingPriority="254" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="deG-iY-6dC">
-                                                        <rect key="frame" x="40" y="0.0" width="168" height="26"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="254" verticalHuggingPriority="254" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="deG-iY-6dC">
+                                                        <rect key="frame" x="40" y="0.0" width="162" height="26"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="Input&amp;Edit-Income" translatesAutoresizingMaskIntoConstraints="NO" id="csH-dE-YgI">
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s45-an-A82">
                                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="26"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="80" id="gIo-rm-0Ot"/>
-                                                                    <constraint firstAttribute="height" constant="26" id="hCg-qr-Una"/>
+                                                                    <constraint firstAttribute="width" constant="80" id="PYM-Uh-dAi"/>
                                                                 </constraints>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="Input&amp;Edit-Expenses" translatesAutoresizingMaskIntoConstraints="NO" id="r7n-Pa-JSQ">
-                                                                <rect key="frame" x="88" y="0.0" width="80" height="26"/>
+                                                                <state key="normal" image="Input&amp;Edit-IncomesActive"/>
+                                                                <connections>
+                                                                    <action selector="IncomeTap:" destination="bRc-Cu-MWJ" eventType="touchUpInside" id="gno-DO-l0E"/>
+                                                                </connections>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMJ-bw-2dB">
+                                                                <rect key="frame" x="82" y="0.0" width="80" height="26"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="26" id="mNJ-kA-97j"/>
-                                                                    <constraint firstAttribute="width" constant="80" id="mkp-Q7-Zza"/>
+                                                                    <constraint firstAttribute="width" constant="80" id="mMb-tt-OPm"/>
                                                                 </constraints>
-                                                            </imageView>
+                                                                <state key="normal" image="Input&amp;Edit-Expenses"/>
+                                                                <connections>
+                                                                    <action selector="ExpenseTap:" destination="bRc-Cu-MWJ" eventType="touchUpInside" id="ke4-x1-J7u"/>
+                                                                </connections>
+                                                            </button>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
@@ -392,13 +398,13 @@
                                                     <constraint firstAttribute="height" constant="1" id="jmm-n0-zWj"/>
                                                 </constraints>
                                             </view>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="50Q-NU-ze5">
-                                                <rect key="frame" x="309" y="0.0" width="51" height="31"/>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="right" contentVerticalAlignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="50Q-NU-ze5">
+                                                <rect key="frame" x="313" y="0.0" width="51" height="31"/>
                                             </switch>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="50Q-NU-ze5" secondAttribute="trailing" constant="8" id="6W7-JZ-c1I"/>
+                                            <constraint firstAttribute="trailing" secondItem="50Q-NU-ze5" secondAttribute="trailing" constant="4" id="6W7-JZ-c1I"/>
                                             <constraint firstAttribute="height" constant="47" id="VxO-WV-Rzm"/>
                                             <constraint firstItem="H7g-SO-M8L" firstAttribute="top" secondItem="jGF-Bj-HGL" secondAttribute="bottom" constant="24" id="XLP-fw-dPj"/>
                                             <constraint firstItem="H7g-SO-M8L" firstAttribute="top" secondItem="50Q-NU-ze5" secondAttribute="bottom" constant="15" id="YSS-sD-BbF"/>
@@ -412,7 +418,7 @@
                                         <rect key="frame" x="24" y="251" width="366" height="49"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hhk-M7-vOQ" userLabel="IncomesStackView">
-                                                <rect key="frame" x="8" y="0.0" width="120" height="26"/>
+                                                <rect key="frame" x="8" y="0.0" width="158" height="26"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="Input&amp;Edit-Category4" translatesAutoresizingMaskIntoConstraints="NO" id="iNM-pX-s4d">
                                                         <rect key="frame" x="0.0" y="0.0" width="22" height="26"/>
@@ -420,13 +426,16 @@
                                                             <constraint firstAttribute="width" constant="22" id="3Vn-vg-xiH"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" image="SalaryCategory" translatesAutoresizingMaskIntoConstraints="NO" id="Wej-Vj-2Pn">
-                                                        <rect key="frame" x="38" y="0.0" width="82" height="26"/>
+                                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3dh-xq-5kq">
+                                                        <rect key="frame" x="38" y="0.0" width="120" height="26"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="26" id="ebI-OM-g1v"/>
-                                                            <constraint firstAttribute="width" constant="82" id="u6K-7u-wmK"/>
+                                                            <constraint firstAttribute="width" constant="120" id="gbH-Ff-uao"/>
                                                         </constraints>
-                                                    </imageView>
+                                                        <state key="normal" image="SalaryCategory"/>
+                                                        <connections>
+                                                            <action selector="IncomeTap:" destination="bRc-Cu-MWJ" eventType="touchUpInside" id="V16-El-7kI"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lwx-Sm-Rum" userLabel="HorizontalLine">
@@ -588,6 +597,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="gC0-fe-W7H"/>
                     <connections>
+                        <outlet property="CategoryButton" destination="3dh-xq-5kq" id="YAO-TM-niY"/>
+                        <outlet property="ExpenseButton" destination="QMJ-bw-2dB" id="i21-lZ-95o"/>
+                        <outlet property="IncomeButton" destination="s45-an-A82" id="SIE-LE-AjF"/>
+                        <outlet property="SwitchButton" destination="50Q-NU-ze5" id="R31-ZE-Iby"/>
                         <outlet property="WhiteView" destination="mOP-0b-xiW" id="H64-2A-x5b"/>
                     </connections>
                 </viewController>
@@ -596,11 +609,14 @@
             <point key="canvasLocation" x="2057" y="-439"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Aiv-vq-rUc"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Input&amp;Edit-Category4" width="14" height="22"/>
         <image name="Input&amp;Edit-Description3" width="22" height="22"/>
         <image name="Input&amp;Edit-Expenses" width="80" height="26"/>
-        <image name="Input&amp;Edit-Income" width="74" height="26"/>
+        <image name="Input&amp;Edit-IncomesActive" width="74" height="26"/>
         <image name="Input&amp;Edit-Receipt6" width="22" height="22"/>
         <image name="Input&amp;Edit-Repeat5" width="22" height="20"/>
         <image name="Input&amp;Edit-SaveButton" width="350" height="48"/>
@@ -614,7 +630,4 @@
         <image name="chevron-right" width="9" height="16"/>
         <image name="pie-chart" width="18" height="18"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Aiv-vq-rUc"/>
-    </inferredMetricsTieBreakers>
 </document>
