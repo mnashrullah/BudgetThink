@@ -16,6 +16,7 @@
 		D7F08B56246924D800FA7FAF /* BudgetThink.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7F08B54246924D800FA7FAF /* BudgetThink.xcdatamodeld */; };
 		D7F08B58246924DA00FA7FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7F08B57246924DA00FA7FAF /* Assets.xcassets */; };
 		D7F08B5B246924DA00FA7FAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F08B59246924DA00FA7FAF /* LaunchScreen.storyboard */; };
+		ED107A2D247D30B300C4F630 /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED107A2C247D30B300C4F630 /* RepeatViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D7F08B57246924DA00FA7FAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7F08B5A246924DA00FA7FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7F08B5C246924DA00FA7FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED107A2C247D30B300C4F630 /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				D7F08B59246924DA00FA7FAF /* LaunchScreen.storyboard */,
 				D7F08B5C246924DA00FA7FAF /* Info.plist */,
 				D7F08B54246924D800FA7FAF /* BudgetThink.xcdatamodeld */,
+				ED107A2C247D30B300C4F630 /* RepeatViewController.swift */,
 			);
 			path = BudgetThink;
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 				D7F08B50246924D800FA7FAF /* ViewController.swift in Sources */,
 				D7F08B56246924D800FA7FAF /* BudgetThink.xcdatamodeld in Sources */,
 				23C77809247433F3000CEFD7 /* TransactionController.swift in Sources */,
+				ED107A2D247D30B300C4F630 /* RepeatViewController.swift in Sources */,
 				D7F08B4C246924D800FA7FAF /* AppDelegate.swift in Sources */,
 				D7F08B4E246924D800FA7FAF /* SceneDelegate.swift in Sources */,
 			);
