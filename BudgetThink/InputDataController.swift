@@ -11,6 +11,9 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
 
     var isActive:Bool = false
     
+    let datePickerToolbar = UIDatePicker()
+    
+    
     @IBOutlet weak var PickADateTextField: UITextField!
     @IBOutlet weak var DescriptionTextField: UITextField!
     @IBOutlet weak var TotalValueTextField: UITextField!
@@ -18,10 +21,7 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
     @IBOutlet weak var ReceiptView: UIView!
     @IBOutlet weak var ReceiptImage: UIImageView!
     @IBOutlet weak var RepeatView: UIView!
-    
-    let datePickerToolbar = UIDatePicker()
-    
-    
+    @IBOutlet weak var CategoryView: UIView!
     @IBOutlet weak var ExpenseButton: UIButton!
     @IBOutlet weak var IncomeButton: UIButton!
     @IBOutlet weak var CategoryButton: UIButton!
@@ -74,15 +74,13 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         PickADateTextField.text = "Pick a Date"
         PickADateTextField.textColor = UIColor.blackText
         
-//        DescriptionTextField.text = "Description"
-//        DescriptionTextField.textColor = UIColor.lightGreyDesc
-        
         DatePicker.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped(sender:)))
-        tap.delegate = self
-        DatePicker.addGestureRecognizer(tap)
+        let showDatePicker = UITapGestureRecognizer(target: self, action: #selector(createDatePicker))
+        DatePicker.addGestureRecognizer(showDatePicker)
         
-        createDatePicker()
+        CategoryView.isUserInteractionEnabled = true
+        let showCategoryModal = UITapGestureRecognizer(target: self, action: #selector(pickImage))
+        CategoryView.addGestureRecognizer(showCategoryModal)
         
         ReceiptView.isUserInteractionEnabled = true
         let imagePicker = UITapGestureRecognizer(target: self, action: #selector(pickImage))
@@ -92,6 +90,9 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         let showRepeatModal = UITapGestureRecognizer(target: self, action: #selector(repeatTapped))
         RepeatView.addGestureRecognizer(showRepeatModal)
     }
+    
+    
+    
     
     @objc func pickImage() {
         
@@ -131,7 +132,7 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         self.present(prompt, animated: true, completion: nil)
     }
 
-    func createDatePicker() {
+    @objc func createDatePicker() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
@@ -154,18 +155,6 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
     }
     
     
-    @objc func viewTapped(sender: UITapGestureRecognizer){
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        
-        toolbar.setItems([doneBtn], animated: true)
-        
-        PickADateTextField.inputAccessoryView = toolbar
-        PickADateTextField.inputView = datePickerToolbar
-        datePickerToolbar.datePickerMode = .date
-    }
     
     @objc func repeatTapped() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
