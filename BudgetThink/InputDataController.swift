@@ -8,8 +8,13 @@
 import UIKit
 
 class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecognizerDelegate {
-
+    
     var isActive:Bool = false
+    var repeatAmount: Int?
+    var repeatPeriod: String?
+    
+    let datePickerToolbar = UIDatePicker()
+    
     
     @IBOutlet weak var PickADateTextField: UITextField!
     @IBOutlet weak var DescriptionTextField: UITextField!
@@ -18,14 +23,12 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
     @IBOutlet weak var ReceiptView: UIView!
     @IBOutlet weak var ReceiptImage: UIImageView!
     @IBOutlet weak var RepeatView: UIView!
-    
-    let datePickerToolbar = UIDatePicker()
-    
-    
+    @IBOutlet weak var CategoryView: UIView!
     @IBOutlet weak var ExpenseButton: UIButton!
     @IBOutlet weak var IncomeButton: UIButton!
     @IBOutlet weak var CategoryButton: UIButton!
     @IBOutlet weak var SwitchButton: UISwitch!
+    @IBOutlet weak var repeatDesc: UILabel!
     
     @IBAction func IncomeTap(_ sender: UIButton) {
         if isActive == true{
@@ -35,7 +38,7 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
             CategoryButton.setImage(UIImage(named: "SalaryCategory"), for: .normal)
         } else {
             isActive = false
-
+            
         }
     }
     @IBAction func ExpenseTap(_ sender: UIButton) {
@@ -47,10 +50,34 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         } else {
             isActive = true
         }
-            
-            
-        }
+        
+        
+    }
     @IBAction func backTap(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func saveTap(_ sender: UIButton) {
+        let total = Int(TotalValueTextField.text!) ?? 0
+        let date = datePickerToolbar.date as NSDate
+        let desc = DescriptionTextField.text
+        let category = "salary" //sementara, karena category belom jadi
+        let amount = NSNumber(value: repeatAmount ?? 0)
+        var receipt = NSData()
+        if let image = ReceiptImage.image {
+            receipt = image.jpegData(compressionQuality: 1.0)! as NSData
+        } else {
+            print("Trying to show an image not backed by CGImage or no image found!")
+        }
+        
+        // if switch off don't save repeatData
+        var finance: Financed?
+        if SwitchButton.isOn {
+            finance = Financed(total: total as NSNumber,date: date, desc: desc, category: category, repeatAmount: amount, repeatPeriod: repeatPeriod, img: receipt)
+        } else {
+            finance = Financed(date: date, desc: desc, category: category, repeatAmount: nil, repeatPeriod: nil, img: receipt)
+        }
+        
+        CDManager.shared.addData(finance: finance!)
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -74,15 +101,13 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         PickADateTextField.text = "Pick a Date"
         PickADateTextField.textColor = UIColor.blackText
         
-//        DescriptionTextField.text = "Description"
-//        DescriptionTextField.textColor = UIColor.lightGreyDesc
-        
         DatePicker.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(self.viewTapped(sender:)))
-        tap.delegate = self
-        DatePicker.addGestureRecognizer(tap)
+        let datePicker = UITapGestureRecognizer(target: self, action: #selector(showDatePicker))
+        DatePicker.addGestureRecognizer(datePicker)
         
-        createDatePicker()
+        CategoryView.isUserInteractionEnabled = true
+        let showCategoryModal = UITapGestureRecognizer(target: self, action: #selector(pickImage))
+        CategoryView.addGestureRecognizer(showCategoryModal)
         
         ReceiptView.isUserInteractionEnabled = true
         let imagePicker = UITapGestureRecognizer(target: self, action: #selector(pickImage))
@@ -91,7 +116,20 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         RepeatView.isUserInteractionEnabled = true
         let showRepeatModal = UITapGestureRecognizer(target: self, action: #selector(repeatTapped))
         RepeatView.addGestureRecognizer(showRepeatModal)
+        
+        if let period = repeatPeriod {
+            let amount = String(repeatAmount!)
+            repeatDesc.text = "\(period) @\(amount)"
+            repeatDesc.isHidden = false
+        } else {
+            repeatDesc.isHidden = true
+        }
+        createDatePicker()
+        TotalValueTextField.becomeFirstResponder()
     }
+    
+    
+    
     
     @objc func pickImage() {
         
@@ -130,8 +168,8 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         
         self.present(prompt, animated: true, completion: nil)
     }
-
-    func createDatePicker() {
+    
+    @objc func createDatePicker() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
@@ -142,6 +180,10 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         PickADateTextField.inputView = datePickerToolbar
         datePickerToolbar.datePickerMode = .date
         
+    }
+    
+    @objc func showDatePicker() {
+        PickADateTextField.becomeFirstResponder()
     }
     
     @objc func donePressed(){
@@ -154,23 +196,14 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
     }
     
     
-    @objc func viewTapped(sender: UITapGestureRecognizer){
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        
-        toolbar.setItems([doneBtn], animated: true)
-        
-        PickADateTextField.inputAccessoryView = toolbar
-        PickADateTextField.inputView = datePickerToolbar
-        datePickerToolbar.datePickerMode = .date
-    }
     
     @objc func repeatTapped() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let repeatVC = storyboard.instantiateViewController(identifier: "RepeatVC") as RepeatViewController
-        
+        repeatVC.dataSender = self
+        if let period = repeatPeriod {
+            repeatVC.detail = (repeatAmount, period)
+        }
         repeatVC.modalPresentationStyle = .custom
         self.present(repeatVC, animated: true)
     }
@@ -184,7 +217,20 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
     
 }
 
-extension InputDataController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension InputDataController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, RepeatDataSender {
+    
+    // MARK: - RepeatDataSender
+    
+    func onDone(repeatAmount: Int, repeatPeriod: String) {
+        if repeatAmount > 0 {
+            SwitchButton.setOn(true, animated: false)
+            self.repeatAmount = repeatAmount
+            self.repeatPeriod = repeatPeriod
+            
+            repeatDesc.text = "\(repeatPeriod) @\(repeatAmount)x"
+            repeatDesc.isHidden = false
+        }
+    }
     
     // MARK: - UIImagePickerControllerDelegate
     
@@ -206,12 +252,6 @@ extension InputDataController: UIImagePickerControllerDelegate, UINavigationCont
     func show(_ image: UIImage) {
         ReceiptImage.image = nil
         ReceiptImage.image = image
-        
-        // Transform image to CGImage.
-        guard let cgImage = ReceiptImage.image?.cgImage else {
-            print("Trying to show an image not backed by CGImage!")
-            return
-        }
     }
     
 }

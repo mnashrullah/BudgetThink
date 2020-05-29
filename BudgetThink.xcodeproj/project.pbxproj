@@ -17,6 +17,9 @@
 		D7F08B58246924DA00FA7FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7F08B57246924DA00FA7FAF /* Assets.xcassets */; };
 		D7F08B5B246924DA00FA7FAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F08B59246924DA00FA7FAF /* LaunchScreen.storyboard */; };
 		ED107A2D247D30B300C4F630 /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED107A2C247D30B300C4F630 /* RepeatViewController.swift */; };
+		ED26C0C5247FF61900EAD5BF /* RepeatDataSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C4247FF61900EAD5BF /* RepeatDataSender.swift */; };
+		ED26C0C7247FF63900EAD5BF /* Financed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C6247FF63900EAD5BF /* Financed.swift */; };
+		ED26C0CA247FF66700EAD5BF /* CDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C9247FF66700EAD5BF /* CDManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		D7F08B5A246924DA00FA7FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7F08B5C246924DA00FA7FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ED107A2C247D30B300C4F630 /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
+		ED26C0C4247FF61900EAD5BF /* RepeatDataSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDataSender.swift; sourceTree = "<group>"; };
+		ED26C0C6247FF63900EAD5BF /* Financed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financed.swift; sourceTree = "<group>"; };
+		ED26C0C9247FF66700EAD5BF /* CDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,9 @@
 		D7F08B4A246924D800FA7FAF /* BudgetThink */ = {
 			isa = PBXGroup;
 			children = (
+				ED26C0C8247FF65C00EAD5BF /* CoreData */,
+				ED26C0C3247FF5F900EAD5BF /* Protocol */,
+				ED26C0C2247FF5EC00EAD5BF /* Model */,
 				D7F08B4B246924D800FA7FAF /* AppDelegate.swift */,
 				D7F08B4D246924D800FA7FAF /* SceneDelegate.swift */,
 				D7F08B4F246924D800FA7FAF /* ViewController.swift */,
@@ -77,6 +86,30 @@
 				ED107A2C247D30B300C4F630 /* RepeatViewController.swift */,
 			);
 			path = BudgetThink;
+			sourceTree = "<group>";
+		};
+		ED26C0C2247FF5EC00EAD5BF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ED26C0C6247FF63900EAD5BF /* Financed.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ED26C0C3247FF5F900EAD5BF /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				ED26C0C4247FF61900EAD5BF /* RepeatDataSender.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		ED26C0C8247FF65C00EAD5BF /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				ED26C0C9247FF66700EAD5BF /* CDManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +188,11 @@
 				D7F08B56246924D800FA7FAF /* BudgetThink.xcdatamodeld in Sources */,
 				23C77809247433F3000CEFD7 /* TransactionController.swift in Sources */,
 				ED107A2D247D30B300C4F630 /* RepeatViewController.swift in Sources */,
+				ED26C0C5247FF61900EAD5BF /* RepeatDataSender.swift in Sources */,
+				ED26C0CA247FF66700EAD5BF /* CDManager.swift in Sources */,
 				D7F08B4C246924D800FA7FAF /* AppDelegate.swift in Sources */,
 				D7F08B4E246924D800FA7FAF /* SceneDelegate.swift in Sources */,
+				ED26C0C7247FF63900EAD5BF /* Financed.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

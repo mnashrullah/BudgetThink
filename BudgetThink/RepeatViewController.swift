@@ -10,6 +10,9 @@ import UIKit
 
 class RepeatViewController: UIViewController {
     
+    var dataSender: RepeatDataSender?
+    var detail : (amount: Int?, period: String?)
+    
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var backdropView: UIView!
     @IBOutlet weak var periodView: UIView!
@@ -21,6 +24,11 @@ class RepeatViewController: UIViewController {
         modalPresentationStyle = .custom
         transitioningDelegate = self
         view.backgroundColor = .clear
+        
+        if let amount = detail.amount {
+            amountTxt.text = String(amount)
+            periodTxt.text = detail.period
+        }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(backdropTap(_:)))
         backdropView.addGestureRecognizer(tapGesture)
@@ -58,6 +66,12 @@ class RepeatViewController: UIViewController {
         sender.minimumValue = 0
         sender.stepValue = 1
         amountTxt.text = String(sender.value)
+    }
+    @IBAction func doneClick(_ sender: Any) {
+        let amount = Double(amountTxt.text!)
+        let amount2 = Int(amount!)
+        dataSender?.onDone(repeatAmount: amount2, repeatPeriod: periodTxt.text!)
+        self.dismiss(animated: true, completion: nil)
     }
     
 }
