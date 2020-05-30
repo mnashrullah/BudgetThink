@@ -16,6 +16,9 @@
 		D7F08B56246924D800FA7FAF /* BudgetThink.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D7F08B54246924D800FA7FAF /* BudgetThink.xcdatamodeld */; };
 		D7F08B58246924DA00FA7FAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7F08B57246924DA00FA7FAF /* Assets.xcassets */; };
 		D7F08B5B246924DA00FA7FAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7F08B59246924DA00FA7FAF /* LaunchScreen.storyboard */; };
+		ED0DDB5E2482940D00018ACD /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0DDB5D2482940D00018ACD /* TransactionCell.swift */; };
+		ED0DDB602482A2A300018ACD /* StatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0DDB5F2482A2A300018ACD /* StatisticCell.swift */; };
+		ED0DDB622482A2D700018ACD /* StatisticController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0DDB612482A2D700018ACD /* StatisticController.swift */; };
 		ED107A2D247D30B300C4F630 /* RepeatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED107A2C247D30B300C4F630 /* RepeatViewController.swift */; };
 		ED26C0C5247FF61900EAD5BF /* RepeatDataSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C4247FF61900EAD5BF /* RepeatDataSender.swift */; };
 		ED26C0C7247FF63900EAD5BF /* Financed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C6247FF63900EAD5BF /* Financed.swift */; };
@@ -36,6 +39,9 @@
 		D7F08B57246924DA00FA7FAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7F08B5A246924DA00FA7FAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D7F08B5C246924DA00FA7FAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ED0DDB5D2482940D00018ACD /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		ED0DDB5F2482A2A300018ACD /* StatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticCell.swift; sourceTree = "<group>"; };
+		ED0DDB612482A2D700018ACD /* StatisticController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticController.swift; sourceTree = "<group>"; };
 		ED107A2C247D30B300C4F630 /* RepeatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatViewController.swift; sourceTree = "<group>"; };
 		ED26C0C4247FF61900EAD5BF /* RepeatDataSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDataSender.swift; sourceTree = "<group>"; };
 		ED26C0C6247FF63900EAD5BF /* Financed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financed.swift; sourceTree = "<group>"; };
@@ -74,6 +80,7 @@
 		D7F08B4A246924D800FA7FAF /* BudgetThink */ = {
 			isa = PBXGroup;
 			children = (
+				ED0DDB5C248293D500018ACD /* Cell */,
 				EDF427CF2482222C0063DE98 /* Animator */,
 				ED26C0C8247FF65C00EAD5BF /* CoreData */,
 				ED26C0C3247FF5F900EAD5BF /* Protocol */,
@@ -89,8 +96,18 @@
 				D7F08B5C246924DA00FA7FAF /* Info.plist */,
 				D7F08B54246924D800FA7FAF /* BudgetThink.xcdatamodeld */,
 				ED107A2C247D30B300C4F630 /* RepeatViewController.swift */,
+				ED0DDB612482A2D700018ACD /* StatisticController.swift */,
 			);
 			path = BudgetThink;
+			sourceTree = "<group>";
+		};
+		ED0DDB5C248293D500018ACD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ED0DDB5D2482940D00018ACD /* TransactionCell.swift */,
+				ED0DDB5F2482A2A300018ACD /* StatisticCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		ED26C0C2247FF5EC00EAD5BF /* Model */ = {
@@ -201,12 +218,15 @@
 				23C7780B247434D7000CEFD7 /* InputDataController.swift in Sources */,
 				D7F08B50246924D800FA7FAF /* ViewController.swift in Sources */,
 				D7F08B56246924D800FA7FAF /* BudgetThink.xcdatamodeld in Sources */,
+				ED0DDB602482A2A300018ACD /* StatisticCell.swift in Sources */,
 				23C77809247433F3000CEFD7 /* TransactionController.swift in Sources */,
 				ED107A2D247D30B300C4F630 /* RepeatViewController.swift in Sources */,
 				ED26C0C5247FF61900EAD5BF /* RepeatDataSender.swift in Sources */,
 				ED26C0CA247FF66700EAD5BF /* CDManager.swift in Sources */,
 				EDF427D12482223E0063DE98 /* UpAnimator.swift in Sources */,
+				ED0DDB5E2482940D00018ACD /* TransactionCell.swift in Sources */,
 				D7F08B4C246924D800FA7FAF /* AppDelegate.swift in Sources */,
+				ED0DDB622482A2D700018ACD /* StatisticController.swift in Sources */,
 				D7F08B4E246924D800FA7FAF /* SceneDelegate.swift in Sources */,
 				ED26C0C7247FF63900EAD5BF /* Financed.swift in Sources */,
 			);

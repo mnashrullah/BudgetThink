@@ -70,4 +70,17 @@ class CDManager {
             print("error fetching for deletion: \(error)")
         }
     }
+    
+    func loadDataByIncome(isIncome: Bool) -> [Finance] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Finance")
+        request.predicate = NSPredicate(format: "isIncome = %@", NSNumber(value: isIncome))
+        request.returnsObjectsAsFaults = false
+        var finances = [Finance]()
+        do {
+            try finances = objectContext.fetch(request) as! [Finance]
+        } catch {
+            print("couldn't load data")
+        }
+        return finances
+    }
 }
