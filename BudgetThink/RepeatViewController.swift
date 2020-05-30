@@ -21,9 +21,8 @@ class RepeatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        modalPresentationStyle = .custom
-        transitioningDelegate = self
         view.backgroundColor = .clear
+        backdropView.backgroundColor = .clear
         
         if let amount = detail.amount {
             amountTxt.text = String(amount)
@@ -72,14 +71,6 @@ class RepeatViewController: UIViewController {
         let amount2 = Int(amount!)
         dataSender?.onDone(repeatAmount: amount2, repeatPeriod: periodTxt.text!)
         self.dismiss(animated: true, completion: nil)
-    }
-    
-}
-
-extension RepeatViewController: UIViewControllerTransitioningDelegate  {
-    
-    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return 1
     }
     
 }

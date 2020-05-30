@@ -20,6 +20,8 @@
 		ED26C0C5247FF61900EAD5BF /* RepeatDataSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C4247FF61900EAD5BF /* RepeatDataSender.swift */; };
 		ED26C0C7247FF63900EAD5BF /* Financed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C6247FF63900EAD5BF /* Financed.swift */; };
 		ED26C0CA247FF66700EAD5BF /* CDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C9247FF66700EAD5BF /* CDManager.swift */; };
+		EDF427D12482223E0063DE98 /* UpAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF427D02482223E0063DE98 /* UpAnimator.swift */; };
+		EDF427D32482391E0063DE98 /* DownAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF427D22482391E0063DE98 /* DownAnimator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		ED26C0C4247FF61900EAD5BF /* RepeatDataSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDataSender.swift; sourceTree = "<group>"; };
 		ED26C0C6247FF63900EAD5BF /* Financed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financed.swift; sourceTree = "<group>"; };
 		ED26C0C9247FF66700EAD5BF /* CDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDManager.swift; sourceTree = "<group>"; };
+		EDF427D02482223E0063DE98 /* UpAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpAnimator.swift; sourceTree = "<group>"; };
+		EDF427D22482391E0063DE98 /* DownAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		D7F08B4A246924D800FA7FAF /* BudgetThink */ = {
 			isa = PBXGroup;
 			children = (
+				EDF427CF2482222C0063DE98 /* Animator */,
 				ED26C0C8247FF65C00EAD5BF /* CoreData */,
 				ED26C0C3247FF5F900EAD5BF /* Protocol */,
 				ED26C0C2247FF5EC00EAD5BF /* Model */,
@@ -110,6 +115,15 @@
 				ED26C0C9247FF66700EAD5BF /* CDManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EDF427CF2482222C0063DE98 /* Animator */ = {
+			isa = PBXGroup;
+			children = (
+				EDF427D02482223E0063DE98 /* UpAnimator.swift */,
+				EDF427D22482391E0063DE98 /* DownAnimator.swift */,
+			);
+			path = Animator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF427D32482391E0063DE98 /* DownAnimator.swift in Sources */,
 				23C7780B247434D7000CEFD7 /* InputDataController.swift in Sources */,
 				D7F08B50246924D800FA7FAF /* ViewController.swift in Sources */,
 				D7F08B56246924D800FA7FAF /* BudgetThink.xcdatamodeld in Sources */,
@@ -190,6 +205,7 @@
 				ED107A2D247D30B300C4F630 /* RepeatViewController.swift in Sources */,
 				ED26C0C5247FF61900EAD5BF /* RepeatDataSender.swift in Sources */,
 				ED26C0CA247FF66700EAD5BF /* CDManager.swift in Sources */,
+				EDF427D12482223E0063DE98 /* UpAnimator.swift in Sources */,
 				D7F08B4C246924D800FA7FAF /* AppDelegate.swift in Sources */,
 				D7F08B4E246924D800FA7FAF /* SceneDelegate.swift in Sources */,
 				ED26C0C7247FF63900EAD5BF /* Financed.swift in Sources */,

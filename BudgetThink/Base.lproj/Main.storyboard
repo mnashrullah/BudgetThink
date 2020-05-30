@@ -633,7 +633,7 @@
                                         <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="30"/>
                                         <state key="normal" image="Input&amp;Edit-SaveButton"/>
                                         <connections>
-                                            <action selector="SaveTap:" destination="mRB-7n-YwF" eventType="touchUpInside" id="zNW-pc-Oh5"/>
+                                            <action selector="saveTap:" destination="mRB-7n-YwF" eventType="touchUpInside" id="LvY-NY-RyX"/>
                                         </connections>
                                     </button>
                                 </subviews>

@@ -10,6 +10,7 @@ import Foundation
 
 struct Financed {
     var total: NSNumber?
+    var isIncome: Bool?
     var date: NSDate?
     var desc: String?
     var category: String?

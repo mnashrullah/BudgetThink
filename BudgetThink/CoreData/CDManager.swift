@@ -33,6 +33,8 @@ class CDManager {
     func addData(finance: Financed) {
         let entity = NSEntityDescription.entity(forEntityName: "Finance", in: objectContext)
         let newData = NSManagedObject(entity: entity!, insertInto: objectContext)
+        newData.setValue(finance.total, forKey: "total")
+        newData.setValue(finance.isIncome, forKey: "isIncome")
         newData.setValue(finance.desc, forKey: "desc")
         newData.setValue(finance.date, forKey: "date")
         newData.setValue(finance.category, forKey: "category")
