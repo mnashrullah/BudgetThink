@@ -12,6 +12,8 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
     var isActive:Bool = false
     var repeatAmount: Int?
     var repeatPeriod: String?
+    let transition = UpAnimator()
+    let backTransition = DownAnimator()
     
     let datePickerToolbar = UIDatePicker()
     
@@ -72,9 +74,9 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         // if switch off don't save repeatData
         var finance: Financed?
         if SwitchButton.isOn {
-            finance = Financed(total: total as NSNumber,date: date, desc: desc, category: category, repeatAmount: amount, repeatPeriod: repeatPeriod, img: receipt)
+            finance = Financed(total: total as NSNumber,isIncome: !isActive ,date: date, desc: desc, category: category, repeatAmount: amount, repeatPeriod: repeatPeriod, img: receipt)
         } else {
-            finance = Financed(date: date, desc: desc, category: category, repeatAmount: nil, repeatPeriod: nil, img: receipt)
+            finance = Financed(total: total as NSNumber,isIncome: !isActive ,date: date, desc: desc, category: category, repeatAmount: nil, repeatPeriod: nil, img: receipt)
         }
         
         CDManager.shared.addData(finance: finance!)
@@ -124,7 +126,9 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         } else {
             repeatDesc.isHidden = true
         }
+        
         createDatePicker()
+        addDoneTotal()
         TotalValueTextField.becomeFirstResponder()
     }
     
@@ -169,6 +173,20 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         self.present(prompt, animated: true, completion: nil)
     }
     
+    func addDoneTotal() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(doneTapped))
+        toolbar.setItems([doneBtn], animated: true)
+        
+        TotalValueTextField.inputAccessoryView = toolbar
+    }
+    
+    @objc func doneTapped() {
+        self.view.endEditing(true)
+    }
+    
     @objc func createDatePicker() {
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -205,6 +223,7 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
             repeatVC.detail = (repeatAmount, period)
         }
         repeatVC.modalPresentationStyle = .custom
+        repeatVC.transitioningDelegate = self
         self.present(repeatVC, animated: true)
     }
     
@@ -217,7 +236,17 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
     
 }
 
-extension InputDataController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, RepeatDataSender {
+extension InputDataController: UIImagePickerControllerDelegate, UINavigationControllerDelegate, RepeatDataSender, UIViewControllerTransitioningDelegate {
+    
+    // MARK: - UIViewControllerTransitioningDelegate
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return backTransition
+    }
     
     // MARK: - RepeatDataSender
     

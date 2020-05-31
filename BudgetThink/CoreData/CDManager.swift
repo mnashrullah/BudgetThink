@@ -33,6 +33,8 @@ class CDManager {
     func addData(finance: Financed) {
         let entity = NSEntityDescription.entity(forEntityName: "Finance", in: objectContext)
         let newData = NSManagedObject(entity: entity!, insertInto: objectContext)
+        newData.setValue(finance.total, forKey: "total")
+        newData.setValue(finance.isIncome, forKey: "isIncome")
         newData.setValue(finance.desc, forKey: "desc")
         newData.setValue(finance.date, forKey: "date")
         newData.setValue(finance.category, forKey: "category")
@@ -67,5 +69,18 @@ class CDManager {
         } catch {
             print("error fetching for deletion: \(error)")
         }
+    }
+    
+    func loadDataByIncome(isIncome: Bool) -> [Finance] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Finance")
+        request.predicate = NSPredicate(format: "isIncome = %@", NSNumber(value: isIncome))
+        request.returnsObjectsAsFaults = false
+        var finances = [Finance]()
+        do {
+            try finances = objectContext.fetch(request) as! [Finance]
+        } catch {
+            print("couldn't load data")
+        }
+        return finances
     }
 }
