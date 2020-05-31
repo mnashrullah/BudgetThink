@@ -50,7 +50,7 @@ extension TransactionController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableTransaction.dequeueReusableCell(withIdentifier: "transactionCell", for: indexPath) as! TransactionCell
         let item = transactionItem[indexPath.row]
         
-        let type = item.isIncome ? "Income":"Expense"
+//        let type = item.isIncome ? "Income":"Expense"
         var image: UIImage?
         
         switch item.category?.lowercased() {
@@ -87,7 +87,7 @@ extension TransactionController: UITableViewDelegate, UITableViewDataSource {
         }
         
         cell.title.text = item.desc
-        cell.subtitle.text = "\(item.category!) | \(type)"
+//        cell.subtitle.text = "\(item.category!) | \(type)"
         cell.total.text = "Rp \(String(item.total))"
         cell.img.image = image
         return cell
