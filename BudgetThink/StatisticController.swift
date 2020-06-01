@@ -29,6 +29,7 @@ class StatisticController: UIViewController {
         tableStatistic.delegate = self
         tableStatistic.dataSource = self
 
+        segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: UIControl.State.selected)
         if segmentedControl.selectedSegmentIndex == 0 {
             statisticItems = CDManager.shared.loadDataByIncome(isIncome: true)
         } else {

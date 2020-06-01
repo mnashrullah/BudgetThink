@@ -108,7 +108,7 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         DatePicker.addGestureRecognizer(datePicker)
         
         CategoryView.isUserInteractionEnabled = true
-        let showCategoryModal = UITapGestureRecognizer(target: self, action: #selector(pickImage))
+        let showCategoryModal = UITapGestureRecognizer(target: self, action: #selector(categoryTapped))
         CategoryView.addGestureRecognizer(showCategoryModal)
         
         ReceiptView.isUserInteractionEnabled = true
@@ -213,7 +213,83 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         self.view.endEditing(true)
     }
     
-    
+    @objc func categoryTapped() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        func alertHandler(action: UIAlertAction) {
+            switch action.title {
+          case "Salary":
+            CategoryButton.setImage(UIImage(named: "SalaryCategory"), for: .normal)
+          case "Bonus":
+            CategoryButton.setImage(UIImage(named: "BonusCategory"), for: .normal)
+          case "Gift":
+            CategoryButton.setImage(UIImage(named: "GiftCategory"), for: .normal)
+          case "Passive Income":
+            CategoryButton.setImage(UIImage(named: "PassiveIncomeCategory"), for: .normal)
+          case "Other":
+            CategoryButton.setImage(UIImage(named: "OtherCategory"), for: .normal)
+          case "Food & Beverage":
+            CategoryButton.setImage(UIImage(named: "Food&BeverageCategory"), for: .normal)
+          case "Transportation":
+            CategoryButton.setImage(UIImage(named: "TransportationCategory"), for: .normal)
+          case "Lifestyle":
+            CategoryButton.setImage(UIImage(named: "LifestyleCategory"), for: .normal)
+          case "Clothing":
+            CategoryButton.setImage(UIImage(named: "ClothingCategory"), for: .normal)
+          case "Education":
+            CategoryButton.setImage(UIImage(named: "EducationCategory"), for: .normal)
+          case "Health":
+            CategoryButton.setImage(UIImage(named: "HealthCategory"), for: .normal)
+          case "Utilities":
+            CategoryButton.setImage(UIImage(named: "UtilitiesCategory"), for: .normal)
+          case "Rent & Mortgage":
+            CategoryButton.setImage(UIImage(named: "Rent&MortgageCategory"), for: .normal)
+          case "Household":
+            CategoryButton.setImage(UIImage(named: "HouseholdCategory"), for: .normal)
+          default:
+            CategoryButton.setImage(UIImage(named: "SalaryCategory"), for: .normal)
+          }
+            //  self.CategoryButton.text = action.title
+            
+        }
+        
+        // Income Category
+        let salary = UIAlertAction(title: "Salary", style: .default, handler: alertHandler)
+        let bonus = UIAlertAction(title: "Bonus", style: .default, handler: alertHandler)
+        let gift = UIAlertAction(title: "Gift", style: .default, handler: alertHandler)
+        let passive = UIAlertAction(title: "Passive Income", style: .default, handler: alertHandler)
+        let other = UIAlertAction(title: "Other", style: .default, handler: alertHandler)
+        
+        // Expense Category
+        let food = UIAlertAction(title: "Food & Beverage", style: .default, handler: alertHandler)
+        let transport = UIAlertAction(title: "Transportation", style: .default, handler: alertHandler)
+        let lifestyle = UIAlertAction(title: "Lifestyle", style: .default, handler: alertHandler)
+        let clothing = UIAlertAction(title: "Clothing", style: .default, handler: alertHandler)
+        let education = UIAlertAction(title: "Education", style: .default, handler: alertHandler)
+        let health = UIAlertAction(title: "Health", style: .default, handler: alertHandler)
+        let utilities = UIAlertAction(title: "Utilities", style: .default, handler: alertHandler)
+        let rent = UIAlertAction(title: "Rent & Mortgage", style: .default, handler: alertHandler)
+        let household = UIAlertAction(title: "Household", style: .default, handler: alertHandler)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        })
+        
+        if isActive == false {
+            for action in [salary, bonus, gift, passive, other, cancel] {
+            alert.addAction(action)
+            }
+            
+        } else {
+                for action in [food, transport, lifestyle, clothing, education, health, utilities, rent, household, other, cancel] {
+                    alert.addAction(action)}
+            }
+        
+        
+        
+        self.present(alert, animated: true)
+        
+    }
     
     @objc func repeatTapped() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
