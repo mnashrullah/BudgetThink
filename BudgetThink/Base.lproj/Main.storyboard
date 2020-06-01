@@ -15,16 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mqo-XD-seQ">
-                                <rect key="frame" x="128.5" y="104" width="157" height="32"/>
-                                <segments>
-                                    <segment title="Incomes"/>
-                                    <segment title="Expenses"/>
-                                </segments>
-                                <connections>
-                                    <action selector="onChangeSegmented:" destination="Ryl-Os-wLV" eventType="valueChanged" id="uyC-nv-E9P"/>
-                                </connections>
-                            </segmentedControl>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CategoryIExpense-Lifestyle3" translatesAutoresizingMaskIntoConstraints="NO" id="XFg-02-x5u">
                                 <rect key="frame" x="20" y="155" width="374" height="230"/>
                                 <constraints>
@@ -98,17 +88,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="mqo-XD-seQ">
+                                <rect key="frame" x="40" y="104" width="334" height="32"/>
+                                <segments>
+                                    <segment title="Incomes"/>
+                                    <segment title="Expenses"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.1246898845" green="0.23679620030000001" blue="0.46277064089999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <action selector="onChangeSegmented:" destination="Ryl-Os-wLV" eventType="valueChanged" id="uyC-nv-E9P"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="XFg-02-x5u" firstAttribute="top" secondItem="mqo-XD-seQ" secondAttribute="bottom" constant="20" id="Hh3-zc-cvX"/>
+                            <constraint firstItem="mqo-XD-seQ" firstAttribute="centerX" secondItem="XFg-02-x5u" secondAttribute="centerX" id="Gel-w6-YDO"/>
+                            <constraint firstItem="mqo-XD-seQ" firstAttribute="leading" secondItem="ItK-wP-6w5" secondAttribute="leading" constant="40" id="H3e-sC-Hb8"/>
                             <constraint firstItem="0sK-rR-QwU" firstAttribute="top" secondItem="XFg-02-x5u" secondAttribute="bottom" constant="35" id="QHi-Hn-YL1"/>
                             <constraint firstItem="XFg-02-x5u" firstAttribute="centerX" secondItem="yyk-6h-pqU" secondAttribute="centerX" id="QTf-qJ-0Ok"/>
                             <constraint firstItem="0sK-rR-QwU" firstAttribute="bottom" secondItem="ItK-wP-6w5" secondAttribute="bottom" id="bT4-Rj-n08"/>
-                            <constraint firstItem="mqo-XD-seQ" firstAttribute="centerX" secondItem="yyk-6h-pqU" secondAttribute="centerX" id="bmM-bb-81i"/>
-                            <constraint firstItem="mqo-XD-seQ" firstAttribute="top" secondItem="ItK-wP-6w5" secondAttribute="top" constant="16" id="bnc-fh-eMr"/>
+                            <constraint firstItem="XFg-02-x5u" firstAttribute="top" secondItem="mqo-XD-seQ" secondAttribute="bottom" constant="20" id="bVs-w7-ZOG"/>
                             <constraint firstItem="0sK-rR-QwU" firstAttribute="leading" secondItem="ItK-wP-6w5" secondAttribute="leading" id="tXN-em-AkR"/>
                             <constraint firstItem="0sK-rR-QwU" firstAttribute="trailing" secondItem="ItK-wP-6w5" secondAttribute="trailing" id="u6I-yM-u9F"/>
+                            <constraint firstItem="mqo-XD-seQ" firstAttribute="top" secondItem="ItK-wP-6w5" secondAttribute="top" constant="16" id="wth-ex-rFI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ItK-wP-6w5"/>
                     </view>
