@@ -23,6 +23,7 @@
 		ED26C0C5247FF61900EAD5BF /* RepeatDataSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C4247FF61900EAD5BF /* RepeatDataSender.swift */; };
 		ED26C0C7247FF63900EAD5BF /* Financed.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C6247FF63900EAD5BF /* Financed.swift */; };
 		ED26C0CA247FF66700EAD5BF /* CDManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED26C0C9247FF66700EAD5BF /* CDManager.swift */; };
+		EDA6180424862CE700B1C5BA /* BudgetThinkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA6180324862CE700B1C5BA /* BudgetThinkHelper.swift */; };
 		EDF427D12482223E0063DE98 /* UpAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF427D02482223E0063DE98 /* UpAnimator.swift */; };
 		EDF427D32482391E0063DE98 /* DownAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF427D22482391E0063DE98 /* DownAnimator.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		ED26C0C4247FF61900EAD5BF /* RepeatDataSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatDataSender.swift; sourceTree = "<group>"; };
 		ED26C0C6247FF63900EAD5BF /* Financed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Financed.swift; sourceTree = "<group>"; };
 		ED26C0C9247FF66700EAD5BF /* CDManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDManager.swift; sourceTree = "<group>"; };
+		EDA6180324862CE700B1C5BA /* BudgetThinkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetThinkHelper.swift; sourceTree = "<group>"; };
 		EDF427D02482223E0063DE98 /* UpAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpAnimator.swift; sourceTree = "<group>"; };
 		EDF427D22482391E0063DE98 /* DownAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownAnimator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +82,7 @@
 		D7F08B4A246924D800FA7FAF /* BudgetThink */ = {
 			isa = PBXGroup;
 			children = (
+				EDA6180224862CD000B1C5BA /* Helper */,
 				ED0DDB5C248293D500018ACD /* Cell */,
 				EDF427CF2482222C0063DE98 /* Animator */,
 				ED26C0C8247FF65C00EAD5BF /* CoreData */,
@@ -132,6 +135,14 @@
 				ED26C0C9247FF66700EAD5BF /* CDManager.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		EDA6180224862CD000B1C5BA /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				EDA6180324862CE700B1C5BA /* BudgetThinkHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		EDF427CF2482222C0063DE98 /* Animator */ = {
@@ -225,6 +236,7 @@
 				ED26C0CA247FF66700EAD5BF /* CDManager.swift in Sources */,
 				EDF427D12482223E0063DE98 /* UpAnimator.swift in Sources */,
 				ED0DDB5E2482940D00018ACD /* TransactionCell.swift in Sources */,
+				EDA6180424862CE700B1C5BA /* BudgetThinkHelper.swift in Sources */,
 				D7F08B4C246924D800FA7FAF /* AppDelegate.swift in Sources */,
 				ED0DDB622482A2D700018ACD /* StatisticController.swift in Sources */,
 				D7F08B4E246924D800FA7FAF /* SceneDelegate.swift in Sources */,

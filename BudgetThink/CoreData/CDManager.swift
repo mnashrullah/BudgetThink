@@ -50,9 +50,13 @@ class CDManager {
         }
     }
     
-    func deleteData(id: String) {
+    func deleteData(desc: String, date: Date) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Finance")
-        request.predicate = NSPredicate(format: "category = %@", id)
+        let p1 = NSPredicate(format: "desc = %@", desc)
+//        let p2 = NSPredicate(format: "date = %@", date as CVarArg)
+        print(date as CVarArg)
+        request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [p1])
+//        request.predicate = NSPredicate(format: "desc = %@ AND date = @a", desc, date as CVarArg)
         
         do {
             let objects = try objectContext.fetch(request)

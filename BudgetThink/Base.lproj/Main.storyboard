@@ -52,7 +52,7 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="2"/>
+                                                            <integer key="value" value="6"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
@@ -338,6 +338,7 @@
                     <connections>
                         <outlet property="WhiteView" destination="utV-yg-mKO" id="jL1-jc-E5q"/>
                         <outlet property="tableTransaction" destination="pqQ-Qz-GC6" id="QAK-pM-aTu"/>
+                        <outlet property="totalLabel" destination="qKg-kH-cQ7" id="0vj-9R-ptk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LVI-di-MnG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

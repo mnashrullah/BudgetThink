@@ -12,6 +12,9 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
     var isActive:Bool = false
     var repeatAmount: Int?
     var repeatPeriod: String?
+    var category = "Salary"
+//    var transactionSender : (total: String?, date: String?, desc: String?, receipt: UIImage?)
+    
     let transition = UpAnimator()
     let backTransition = DownAnimator()
     
@@ -38,6 +41,7 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
             ExpenseButton.setImage(UIImage(named: "Input&Edit-Expenses"), for: .normal)
             IncomeButton.setImage(UIImage(named: "Input&Edit-IncomesActive"), for: .normal)
             CategoryButton.setImage(UIImage(named: "SalaryCategory"), for: .normal)
+            category = "Salary"
         } else {
             isActive = false
             
@@ -49,6 +53,7 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
             ExpenseButton.setImage(UIImage(named: "Input&Edit-ExpensesActive"), for: .normal)
             IncomeButton.setImage(UIImage(named: "Input&Edit-Incomes"), for: .normal)
             CategoryButton.setImage(UIImage(named: "ClothingCategory"), for: .normal)
+            category = "Clothing"
         } else {
             isActive = true
         }
@@ -62,7 +67,6 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         let total = Int(TotalValueTextField.text!) ?? 0
         let date = datePickerToolbar.date as NSDate
         let desc = DescriptionTextField.text
-        let category = "salary" //sementara, karena category belom jadi
         let amount = NSNumber(value: repeatAmount ?? 0)
         var receipt = NSData()
         if let image = ReceiptImage.image {
@@ -129,6 +133,16 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         
         createDatePicker()
         addDoneTotal()
+        
+        //to intialize data on transaction sender
+//        TotalValueTextField.text = transactionSender.total
+//        PickADateTextField.text = transactionSender.date
+//        DescriptionTextField.text = transactionSender.desc
+//        let categoryImg = BudgetThinkHelper.getBtnImage(fromCategory: category)
+//        CategoryButton.setImage(categoryImg, for: .normal)
+//        repeatDesc.text = "\(repeatPeriod) @\(repeatAmount)x"
+//        SwitchButton.setOn(true, animated: false)
+//
         TotalValueTextField.becomeFirstResponder()
     }
     
@@ -250,7 +264,7 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
             CategoryButton.setImage(UIImage(named: "SalaryCategory"), for: .normal)
           }
             //  self.CategoryButton.text = action.title
-            
+            category = action.title!
         }
         
         // Income Category
