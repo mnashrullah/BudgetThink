@@ -20,6 +20,8 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
     
     let datePickerToolbar = UIDatePicker()
     
+    let imagePicker = UIImagePickerController()
+    
     
     @IBOutlet weak var PickADateTextField: UITextField!
     @IBOutlet weak var DescriptionTextField: UITextField!
@@ -152,20 +154,20 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
     @objc func pickImage() {
         
         let prompt = UIAlertController(title: "Choose a Photo",
-                                       message: "Please choose a photo.",
+                                       message: "Please take a photo or choose from your album.",
                                        preferredStyle: .actionSheet)
         
-        let imagePicker = UIImagePickerController()
+//        let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
+    
         
-        func presentCamera(_ _: UIAlertAction) {
-            imagePicker.sourceType = .camera
-            self.present(imagePicker, animated: true)
-        }
+//        let cameraAction = UIAlertAction(title: "Camera",
+//                                         style: .default,
+//                                         handler: self.presentCamera)
         
-        let cameraAction = UIAlertAction(title: "Camera",
-                                         style: .default,
-                                         handler: presentCamera)
+        prompt.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+               self.presentCamera()
+           }))
         
         func presentAlbums(_ _: UIAlertAction) {
             imagePicker.sourceType = .photoLibrary
@@ -180,11 +182,27 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
                                          style: .cancel,
                                          handler: nil)
         
-        prompt.addAction(cameraAction)
+//        prompt.addAction(cameraAction)
         prompt.addAction(albumsAction)
         prompt.addAction(cancelAction)
         
         self.present(prompt, animated: true, completion: nil)
+    }
+    
+    func presentCamera()
+    {
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera))
+        {
+            imagePicker.sourceType = UIImagePickerController.SourceType.camera
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
+        else
+        {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func addDoneTotal() {
