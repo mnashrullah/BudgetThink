@@ -11,9 +11,15 @@ import UIKit
 class TransactionController: UIViewController {
     
     var transactionItem = Array<Finance>()
+    var incomeItem = Array<Finance>()
+    var outcomeItem = Array<Finance>()
     var total = 0
+    var income = 0
+    var outcome = 0
 
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var totalIncomeLabel: UILabel!
+    @IBOutlet weak var totalOutcomeLabel: UILabel!
     @IBOutlet weak var WhiteView: UIView!
     @IBOutlet weak var tableTransaction: UITableView!
     
@@ -32,21 +38,37 @@ class TransactionController: UIViewController {
         tableTransaction.delegate = self
         tableTransaction.dataSource = self
         transactionItem = CDManager.shared.loadData()
+        incomeItem = CDManager.shared.loadDataByIncome(isIncome: true)
+        outcomeItem = CDManager.shared.loadDataByIncome(isIncome: false)
         showTotal()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         transactionItem = CDManager.shared.loadData()
+        incomeItem = CDManager.shared.loadDataByIncome(isIncome: true)
+        outcomeItem = CDManager.shared.loadDataByIncome(isIncome: false)
         tableTransaction.reloadData()
         showTotal()
     }
     
     func showTotal() {
         total = 0
-        for item in transactionItem {
-            total += Int(item.total)
+        income = 0
+        outcome = 0
+//        for item in transactionItem {
+//            total += Int(item.total)
+//        }
+
+        for item in incomeItem {
+            income += Int(item.total)
         }
+        for item in outcomeItem {
+            outcome += Int(item.total)
+        }
+        total = income - outcome
         totalLabel.text = "Rp \(total)"
+        totalOutcomeLabel.text = "Rp \(outcome)"
+        totalIncomeLabel.text = "Rp \(income)"
     }
 
 }
@@ -81,6 +103,7 @@ extension TransactionController: UITableViewDelegate, UITableViewDataSource {
             CDManager.shared.deleteData(desc: item.desc!, date: item.date!)
             self.transactionItem = CDManager.shared.loadData()
             self.tableTransaction.reloadData()
+            self.showTotal()
         })
 //        done.backgroundColor = UIColor.orange
         return UISwipeActionsConfiguration(actions: [delete])
