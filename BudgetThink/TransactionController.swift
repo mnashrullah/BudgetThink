@@ -99,8 +99,10 @@ extension TransactionController: UITableViewDelegate, UITableViewDataSource {
             (_,_,_) in
             let index = indexPath.row
             let item = self.transactionItem[index]
-            print(item)
-            CDManager.shared.deleteData(desc: item.desc!, date: item.date!)
+            print("mIndex",index)
+            print("mItem",item)
+//            CDManager.shared.deleteData(desc: item.desc!, date: item.date!) // why delete using desc and date?
+            
             self.transactionItem = CDManager.shared.loadData()
             self.tableTransaction.reloadData()
             self.showTotal()

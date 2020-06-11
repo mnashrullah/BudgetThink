@@ -106,6 +106,9 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
         
         WhiteView.layer.cornerRadius = 45
         
+        TotalValueTextField.attributedPlaceholder = NSAttributedString(string: "0",
+        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        
         PickADateTextField.text = "Pick a Date"
         PickADateTextField.textColor = UIColor.blackText
         
@@ -145,6 +148,7 @@ class InputDataController: UIViewController, UITextFieldDelegate, UIGestureRecog
 //        repeatDesc.text = "\(repeatPeriod) @\(repeatAmount)x"
 //        SwitchButton.setOn(true, animated: false)
 //
+
         TotalValueTextField.becomeFirstResponder()
     }
     
