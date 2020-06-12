@@ -90,7 +90,7 @@ extension TransactionController: UITableViewDelegate, UITableViewDataSource {
         cell.subtitle.text = "\(item.category ?? "") | \(type)"
         cell.total.text = "Rp \(String(item.total))"
         cell.img.image = image
-        print(item)
+//        print(item)
         return cell
     }
     
