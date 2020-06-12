@@ -49,6 +49,17 @@ class CDManager {
             print("couldn't save. \(error)")
         }
     }
+    func deleteDataByID(id: NSManagedObjectID) {
+        print("ID",id)
+        let object = objectContext.object(with: id)
+        objectContext.delete(object)
+
+        do {
+            try objectContext.save()
+        } catch {
+            print("failed to delete")
+        }
+        }
     
     func deleteData(desc: String, date: Date) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Finance")
