@@ -22,6 +22,7 @@ class TransactionController: UIViewController {
     @IBOutlet weak var totalOutcomeLabel: UILabel!
     @IBOutlet weak var WhiteView: UIView!
     @IBOutlet weak var tableTransaction: UITableView!
+    let mText = UILabel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +42,17 @@ class TransactionController: UIViewController {
         incomeItem = CDManager.shared.loadDataByIncome(isIncome: true)
         outcomeItem = CDManager.shared.loadDataByIncome(isIncome: false)
         showTotal()
+        
+        mText.textColor = .black
+        mText.frame = CGRect(x:0, y:0, width: 200, height: 100)
+        mText.textAlignment = .center
+        mText.center = view.center
+        mText.text = "No data available"
+        mText.frame.origin.y -= 0
+        mText.font = .preferredFont(forTextStyle: .body)
+        mText.adjustsFontForContentSizeCategory = true
+        view.addSubview(mText)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -49,6 +61,12 @@ class TransactionController: UIViewController {
         outcomeItem = CDManager.shared.loadDataByIncome(isIncome: false)
         tableTransaction.reloadData()
         showTotal()
+    }
+    
+    func setView(view: UIView, hidden: Bool) {
+        UIView.transition(with: view, duration: 0.0, options: .transitionCrossDissolve, animations: {
+            view.isHidden = hidden
+        })
     }
     
     func showTotal() {
@@ -76,6 +94,15 @@ class TransactionController: UIViewController {
 extension TransactionController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        /*if data availble, show data, if empty, hide it**/
+
+        if transactionItem.count != 0 {
+            setView(view: mText, hidden: true)
+            setView(view: tableTransaction, hidden: false)
+        }else{
+            setView(view: mText, hidden: false)
+            setView(view: tableTransaction, hidden: true)
+        }
         return transactionItem.count
     }
     

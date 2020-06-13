@@ -124,13 +124,15 @@ class StatisticController: UIViewController {
             // add images, animations, etc.
             return myView
         }
-        /*if no data, remove chartview**/
+        /*if no data, remove chartview dan table statistic**/
         if chartView.models.isEmpty {
             setView(view: chartView, hidden: true)
             setView(view: mText, hidden: false)
+            setView(view: tableStatistic, hidden: true)
         }else{
             setView(view: chartView, hidden: false)
             setView(view: mText, hidden: true)
+            setView(view: tableStatistic, hidden: false)
 //            noDataLabel.text = "No data available"
             // Do any additional setup after loading the view.
             
