@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  BudgetThink
+
+  Created by Muhammad Nashrullah on 13/06/20.
+  Copyright © 2020 Muhammad Nashrullah. All rights reserved.
+*/
+
+"welcoming user" = "welcome to budgetthink application. press button at top right to add new transaction. press button at bottom right to see summary transaction";
+

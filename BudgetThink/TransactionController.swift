@@ -23,6 +23,8 @@ class TransactionController: UIViewController {
     @IBOutlet weak var WhiteView: UIView!
     @IBOutlet weak var tableTransaction: UITableView!
     let mText = UILabel()
+    let speeceService = SpeechService()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +54,8 @@ class TransactionController: UIViewController {
         mText.font = .preferredFont(forTextStyle: .body)
         mText.adjustsFontForContentSizeCategory = true
         view.addSubview(mText)
-        
+        let welcome = "welcoming user".localized
+        speeceService.say(welcome)
     }
     
     override func viewDidAppear(_ animated: Bool) {

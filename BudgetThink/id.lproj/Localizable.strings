@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  BudgetThink
+
+  Created by Muhammad Nashrullah on 13/06/20.
+  Copyright © 2020 Muhammad Nashrullah. All rights reserved.
+*/
+
+"welcoming user" = "selamat datang pada aplikasi budgetthink. tekan tombol kanan atas, untuk menambahkan transaksi baru. tekan tombol kanan bawah untuk melihat rangkuman pemasukan dan pengeluaran.";

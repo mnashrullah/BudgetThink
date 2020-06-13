@@ -3,13 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		23C77809247433F3000CEFD7 /* TransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C77808247433F3000CEFD7 /* TransactionController.swift */; };
 		23C7780B247434D7000CEFD7 /* InputDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23C7780A247434D7000CEFD7 /* InputDataController.swift */; };
 		C5115E29754A50622B66A073 /* Pods_BudgetThink.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6B0A78CD97ABF9087AFDE6 /* Pods_BudgetThink.framework */; };
+		D70202D2249477160022A6EE /* SpeechService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D70202D1249477160022A6EE /* SpeechService.swift */; };
+		D70202D7249477EC0022A6EE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D70202D9249477EC0022A6EE /* Localizable.strings */; };
 		D7F08B4C246924D800FA7FAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F08B4B246924D800FA7FAF /* AppDelegate.swift */; };
 		D7F08B4E246924D800FA7FAF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F08B4D246924D800FA7FAF /* SceneDelegate.swift */; };
 		D7F08B50246924D800FA7FAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F08B4F246924D800FA7FAF /* ViewController.swift */; };
@@ -34,6 +36,9 @@
 		23C7780A247434D7000CEFD7 /* InputDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDataController.swift; sourceTree = "<group>"; };
 		5E6B0A78CD97ABF9087AFDE6 /* Pods_BudgetThink.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BudgetThink.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67022ED4B4B204B174BDC29D /* Pods-BudgetThink.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BudgetThink.release.xcconfig"; path = "Target Support Files/Pods-BudgetThink/Pods-BudgetThink.release.xcconfig"; sourceTree = "<group>"; };
+		D70202D1249477160022A6EE /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
+		D70202D8249477EC0022A6EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D70202DA2494780D0022A6EE /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D7F08B48246924D800FA7FAF /* BudgetThink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetThink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F08B4B246924D800FA7FAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7F08B4D246924D800FA7FAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,8 +87,15 @@
 				E157A54BE737DC255B6EB4B6 /* Pods-BudgetThink.debug.xcconfig */,
 				67022ED4B4B204B174BDC29D /* Pods-BudgetThink.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D70202D0249476DC0022A6EE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				D70202D1249477160022A6EE /* SpeechService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		D7F08B3F246924D800FA7FAF = {
@@ -113,10 +125,12 @@
 				ED26C0C8247FF65C00EAD5BF /* CoreData */,
 				ED26C0C3247FF5F900EAD5BF /* Protocol */,
 				ED26C0C2247FF5EC00EAD5BF /* Model */,
+				D70202D0249476DC0022A6EE /* Service */,
 				D7F08B4B246924D800FA7FAF /* AppDelegate.swift */,
 				D7F08B4D246924D800FA7FAF /* SceneDelegate.swift */,
 				D7F08B4F246924D800FA7FAF /* ViewController.swift */,
 				D7F08B51246924D800FA7FAF /* Main.storyboard */,
+				D70202D9249477EC0022A6EE /* Localizable.strings */,
 				23C7780A247434D7000CEFD7 /* InputDataController.swift */,
 				23C77808247433F3000CEFD7 /* TransactionController.swift */,
 				D7F08B57246924DA00FA7FAF /* Assets.xcassets */,
@@ -223,6 +237,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = D7F08B3F246924D800FA7FAF;
 			productRefGroup = D7F08B49246924D800FA7FAF /* Products */;
@@ -240,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7F08B5B246924DA00FA7FAF /* LaunchScreen.storyboard in Resources */,
+				D70202D7249477EC0022A6EE /* Localizable.strings in Resources */,
 				D7F08B58246924DA00FA7FAF /* Assets.xcassets in Resources */,
 				D7F08B53246924D800FA7FAF /* Main.storyboard in Resources */,
 			);
@@ -308,6 +324,7 @@
 				EDA6180424862CE700B1C5BA /* BudgetThinkHelper.swift in Sources */,
 				D7F08B4C246924D800FA7FAF /* AppDelegate.swift in Sources */,
 				ED0DDB622482A2D700018ACD /* StatisticController.swift in Sources */,
+				D70202D2249477160022A6EE /* SpeechService.swift in Sources */,
 				D7F08B4E246924D800FA7FAF /* SceneDelegate.swift in Sources */,
 				ED26C0C7247FF63900EAD5BF /* Financed.swift in Sources */,
 			);
@@ -316,6 +333,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		D70202D9249477EC0022A6EE /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D70202D8249477EC0022A6EE /* en */,
+				D70202DA2494780D0022A6EE /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		D7F08B51246924D800FA7FAF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -339,6 +365,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -399,6 +426,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
