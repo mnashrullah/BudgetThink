@@ -39,6 +39,7 @@
 		D70202D1249477160022A6EE /* SpeechService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechService.swift; sourceTree = "<group>"; };
 		D70202D8249477EC0022A6EE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D70202DA2494780D0022A6EE /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D7CB2D0F24975BC80042030A /* BudgetThinkRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = BudgetThinkRelease.entitlements; sourceTree = "<group>"; };
 		D7F08B48246924D800FA7FAF /* BudgetThink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BudgetThink.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F08B4B246924D800FA7FAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D7F08B4D246924D800FA7FAF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,6 +120,7 @@
 		D7F08B4A246924D800FA7FAF /* BudgetThink */ = {
 			isa = PBXGroup;
 			children = (
+				D7CB2D0F24975BC80042030A /* BudgetThinkRelease.entitlements */,
 				EDA6180224862CD000B1C5BA /* Helper */,
 				ED0DDB5C248293D500018ACD /* Cell */,
 				EDF427CF2482222C0063DE98 /* Animator */,
@@ -483,7 +485,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2TX2PWBTJ;
+				DEVELOPMENT_TEAM = TTWVZH63FB;
 				INFOPLIST_FILE = BudgetThink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -502,8 +504,9 @@
 			baseConfigurationReference = 67022ED4B4B204B174BDC29D /* Pods-BudgetThink.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = BudgetThink/BudgetThinkRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Q2TX2PWBTJ;
+				DEVELOPMENT_TEAM = TTWVZH63FB;
 				INFOPLIST_FILE = BudgetThink/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

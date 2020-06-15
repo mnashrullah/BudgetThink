@@ -1,0 +1,16 @@
+PODS:
+  - PieCharts (0.0.7)
+
+DEPENDENCIES:
+  - PieCharts
+
+SPEC REPOS:
+  trunk:
+    - PieCharts
+
+SPEC CHECKSUMS:
+  PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
+
+PODFILE CHECKSUM: e1154db5326c467f90fb68a0f71cafa40bc270c7
+
+COCOAPODS: 1.9.1
