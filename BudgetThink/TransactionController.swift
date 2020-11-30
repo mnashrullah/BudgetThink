@@ -46,7 +46,7 @@ class TransactionController: UIViewController {
         showTotal()
         
         mText.textColor = .black
-        mText.frame = CGRect(x:0, y:0, width: 200, height: 100)
+        mText.frame = CGRect(x:0, y:0, width: 2000, height: 100)
         mText.textAlignment = .center
         mText.center = view.center
         mText.text = "No data available"
